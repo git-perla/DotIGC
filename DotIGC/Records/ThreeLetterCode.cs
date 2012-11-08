@@ -181,6 +181,8 @@
         [Description("Wind speed")]
         WSP,
         [Description("A manufacturer-selected code")]
-        X
+        X,
+        [Description("Unkown TLC")]
+        Unkown
     }
 }

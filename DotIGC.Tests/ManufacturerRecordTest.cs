@@ -10,9 +10,9 @@
         [TestMethod]
         public void Can_parse_record_with_variable_flight_record_id_and_optional_text_string()
         {
-            var recordText = "ALXNGIIFLIGHT:1";
+            var text = "ALXNGIIFLIGHT:1";
             var parser = new ManufacturerSerializer();
-            var record = parser.Deserialize(recordText) as ManufacturerRecord;
+            var record = parser.Deserialize(new SerializationContext(RecordType.A, ThreeLetterCode.Unkown, text)) as ManufacturerRecord;
             Assert.IsTrue(record.Manufacturer == "LXN");
             Assert.IsTrue(record.Id == "GIIFLIGHT");
             Assert.IsTrue(record.AdditionalData == "1");

@@ -7,14 +7,14 @@
 
     public class IgcDocument
     {
-        List<IRecord> records;
+        List<Record> records;
 
-        public IgcDocument(IEnumerable<IRecord> records)
+        public IgcDocument(IEnumerable<Record> records)
         {
             this.records = records.ToList();
         }
 
-        IEnumerable<IRecord> Records
+        IEnumerable<Record> Records
         {
             get { return this.records; }
         }

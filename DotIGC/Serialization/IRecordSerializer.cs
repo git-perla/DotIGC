@@ -4,8 +4,8 @@
     
     public interface IRecordSerializer
     {
-        IRecord Deserialize(string text);
+        Record Deserialize(SerializationContext text);
         
-        string Serialize(IRecord record);
+        string Serialize(Record record);
     }
 }

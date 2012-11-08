@@ -43,7 +43,7 @@
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2}", Manufacturer, Id, AdditionalData); 
+            return string.Format("Manufacturer: {0}, FR: {1}, Additional: {2}", Manufacturer, Id, AdditionalData); 
         }
     }
 }

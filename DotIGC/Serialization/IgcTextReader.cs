@@ -9,17 +9,17 @@
     {
         Stream stream;
         StreamReader reader;
-        RecordSerializerFactory serializers;
+        RecordSerializerContainer<RecordType> serializers;
         bool disposed;
 
-        public IgcTextReader(Stream stream, RecordSerializerFactory serializers)
+        public IgcTextReader(Stream stream, RecordSerializerContainer<RecordType> serializers)
         {
             this.stream = stream;
             this.reader = new StreamReader(stream);
             this.serializers = serializers;
         }
 
-        public bool Read(out IRecord record)
+        public bool Read(out Record record)
         {
             record = null;
 
@@ -28,13 +28,8 @@
 
             var text = reader.ReadLine();
             var recordType = RecordTypeExtensions.Parse(text);
-
-            IRecordSerializer serializer;
-            if (!this.serializers.TryGetSerializer(recordType, out serializer))
-                return true;
             
-            record = serializer.Deserialize(text);
-            
+            record = this.serializers[recordType].Deserialize(new SerializationContext(recordType, ThreeLetterCode.Unkown, text));
             return true;
         }
 
@@ -45,8 +40,7 @@
 
             this.reader.Dispose();
             this.reader = null;
-            this.stream = null;
-            this.serializers = null;
+            this.stream = null;            
             
             disposed = true;
         }       

@@ -37,7 +37,8 @@
   <ItemGroup>
     <Compile Include="Annotations\DescriptionAttribute.cs" />
     <Compile Include="IgcDocument.cs" />
-    <Compile Include="Records\IRecord.cs" />
+    <Compile Include="Records\DataSource.cs" />
+    <Compile Include="Records\HeaderRecord.cs" />
     <Compile Include="Records\ManufacturerRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records\Record.cs" />
@@ -47,7 +48,9 @@
     <Compile Include="Serialization\IgcTextReader.cs" />
     <Compile Include="Serialization\IRecordSerializer.cs" />
     <Compile Include="Serialization\ManufacturerSerializer.cs" />
-    <Compile Include="Serialization\RecordSerializerFactory.cs" />
+    <Compile Include="Serialization\RecordSerializer.cs" />
+    <Compile Include="Serialization\RecordSerializerContainer.cs" />
+    <Compile Include="Serialization\SerializationContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

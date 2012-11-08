@@ -8,23 +8,20 @@
     using System.Linq;
     
     [TestClass]
-    public class IctTextReaderTest
+    public class IgcTextReaderTest
     {
         [TestMethod]
         public void Can_read()
         {
             var path = "Data/Simple.igc";
-            var records = new List<IRecord>();
+            var records = new List<Record>();
             
             using (var stream = new FileStream(path, FileMode.Open))
-            using (var reader = new IgcTextReader(stream, RecordSerializerFactory.Default))
+            using (var reader = new IgcTextReader(stream, RecordSerializerContainer.Default))
             {
-                IRecord record;
+                Record record;
                 while (reader.Read(out record))
-                {
-                    if (record != null)
-                        records.Add(record);
-                }
+                    records.Add(record);
             }
 
             var manufacturerRecord = records.OfType<ManufacturerRecord>().FirstOrDefault();
