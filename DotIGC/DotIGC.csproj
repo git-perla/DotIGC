@@ -36,21 +36,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Annotations\DescriptionAttribute.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="FixRecordReader.cs" />
+    <Compile Include="FlightRecorderRecordReader.cs" />
+    <Compile Include="HeaderRecordReader.cs" />
     <Compile Include="IgcDocument.cs" />
+    <Compile Include="IgcReader.cs" />
+    <Compile Include="IRecordReader.cs" />
+    <Compile Include="RecordReader.cs" />
     <Compile Include="Records\DataSource.cs" />
+    <Compile Include="Records\FixRecord.cs" />
+    <Compile Include="Records\FixValidity.cs" />
     <Compile Include="Records\HeaderRecord.cs" />
     <Compile Include="Records\ManufacturerRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records\Record.cs" />
     <Compile Include="Records\RecordType.cs" />
     <Compile Include="Records\ThreeLetterCode.cs" />
-    <Compile Include="Serialization\HeaderSerializer.cs" />
-    <Compile Include="Serialization\IgcTextReader.cs" />
-    <Compile Include="Serialization\IRecordSerializer.cs" />
-    <Compile Include="Serialization\ManufacturerSerializer.cs" />
-    <Compile Include="Serialization\RecordSerializer.cs" />
-    <Compile Include="Serialization\RecordSerializerContainer.cs" />
-    <Compile Include="Serialization\SerializationContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

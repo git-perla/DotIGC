@@ -31,7 +31,7 @@
         L
     }
 
-    public static class RecordTypeExtensions
+    public static class RecordTypeExtension
     {
         public static string ToString(this RecordType recordType)
         {
