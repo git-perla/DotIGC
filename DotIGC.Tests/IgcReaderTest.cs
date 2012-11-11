@@ -28,7 +28,7 @@
                     records.Add(record);
             }
 
-            var manufacturerRecord = records.OfType<ManufacturerRecord>().FirstOrDefault();
+            var manufacturerRecord = records.OfType<FlightRecorderRecord>().FirstOrDefault();
             Assert.IsNotNull(manufacturerRecord);
             Assert.AreEqual(manufacturerRecord.Manufacturer, "XXX");
 

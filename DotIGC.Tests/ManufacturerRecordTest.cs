@@ -11,7 +11,7 @@
         {
             var text = "ALXNGIIFLIGHT:1";
             var parser = new FlightRecorderRecordReader();
-            var record = parser.Read(text) as ManufacturerRecord;
+            var record = parser.Read(text) as FlightRecorderRecord;
             Assert.IsTrue(record.Manufacturer == "LXN");
             Assert.IsTrue(record.Id == "GIIFLIGHT");
             Assert.IsTrue(record.AdditionalData == "1");

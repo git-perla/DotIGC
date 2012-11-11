@@ -16,7 +16,7 @@
             var substring = text.Substring(4).Split(new[] { ':' });
             var id = substring[0];
 
-            return new ManufacturerRecord(code, id, substring.Length > 0 ? substring[1] : string.Empty, RecordType.A);
+            return new FlightRecorderRecord(code, id, substring.Length > 0 ? substring[1] : string.Empty);
         }
     }
 }

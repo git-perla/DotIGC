@@ -1,5 +1,4 @@
-﻿
-namespace DotIGC.Tests
+﻿namespace DotIGC.Tests
 {
     using DotIGC.Records;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,10 +7,21 @@ namespace DotIGC.Tests
     public class RecordTest
     {
         [TestMethod]
-        public void New_instance_succeeds()
+        public void New_instance_with_record_type_succeeds()
         {
             var record = new Record(RecordType.A);
             Assert.IsTrue(record.RecordType == RecordType.A);
+        }
+
+        [TestMethod]
+        public void New_instance_with_args_succeeds()
+        {
+            var exptectedText = "ExpectedText";
+            var record = new Record(RecordType.A, ThreeLetterCode.ACX, exptectedText);
+            
+            Assert.IsTrue(record.RecordType == RecordType.A);
+            Assert.AreEqual(record.ThreeLetterCode, ThreeLetterCode.ACX);
+            Assert.AreEqual(record.Text, exptectedText);
         }
     }
 }
