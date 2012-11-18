@@ -41,6 +41,7 @@
     <Compile Include="FlightRecorderRecordReader.cs" />
     <Compile Include="HeaderRecordReader.cs" />
     <Compile Include="IgcDocument.cs" />
+    <Compile Include="IgcDocumentHeader.cs" />
     <Compile Include="IgcReader.cs" />
     <Compile Include="IRecordReader.cs" />
     <Compile Include="RecordReader.cs" />

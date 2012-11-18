@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="IgcDocumentTest.cs" />
     <Compile Include="IgcReaderTest.cs" />
     <Compile Include="ManufacturerRecordTest.cs" />
     <Compile Include="RecordTest.cs" />
@@ -64,6 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Simple.igc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\2bff3xl1.igc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\2bif3xl1.igc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\2biv7131.igc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
