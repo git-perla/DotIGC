@@ -39,6 +39,8 @@
     <Compile Include="Container.cs" />
     <Compile Include="FixRecordReader.cs" />
     <Compile Include="FlightRecorderRecordReader.cs" />
+    <Compile Include="GeoPosition.cs" />
+    <Compile Include="GeoPositionCollection.cs" />
     <Compile Include="HeaderRecordReader.cs" />
     <Compile Include="IgcDocument.cs" />
     <Compile Include="IgcDocumentHeader.cs" />

@@ -17,10 +17,9 @@
         public void New_instance_with_args_succeeds()
         {
             var exptectedText = "ExpectedText";
-            var record = new Record(RecordType.A, ThreeLetterCode.ACX, exptectedText);
+            var record = new Record(RecordType.A, exptectedText);
             
-            Assert.IsTrue(record.RecordType == RecordType.A);
-            Assert.AreEqual(record.ThreeLetterCode, ThreeLetterCode.ACX);
+            Assert.IsTrue(record.RecordType == RecordType.A);            
             Assert.AreEqual(record.Text, exptectedText);
         }
     }

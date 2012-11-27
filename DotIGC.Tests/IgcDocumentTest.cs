@@ -11,7 +11,7 @@
         public void Read_header_from_simple_igc_succeeds()
         {
             var path = @"Data/Simple.igc";
-            var header = IgcDocument.LoadHeader(path);
+            var header = IgcDocumentHeader.Load(path);
 
             Assert.AreEqual(header.Date, new DateTime(2001, 7, 16));
             Assert.AreEqual(header.Accuracy, 35);
@@ -33,7 +33,7 @@
         public void Read_header_from_2bff3xl1_igc_succeeds()
         {
             var path = @"Data/2bff3xl1.igc";
-            var header = IgcDocument.LoadHeader(path);
+            var header = IgcDocumentHeader.Load(path);
 
             Assert.AreEqual(header.Date, new DateTime(2012, 11, 15));
             Assert.AreEqual(header.Accuracy, 100);
@@ -47,6 +47,29 @@
             Assert.AreEqual(header.HardwareVersion, "2.1");
             Assert.AreEqual(header.GpsDatum, 100);
             Assert.AreEqual(header.FlightRecorder, "FILSER,LX20");
+        }
+
+        [TestMethod]
+        public void Load_document_from_2bff3xl1_igc_succeeds()
+        {
+            var path = @"Data/2bff3xl1.igc";
+            var document = IgcDocument.Load(path);
+            var header = document.Header;
+
+            Assert.AreEqual(header.Date, new DateTime(2012, 11, 15));
+            Assert.AreEqual(header.Accuracy, 100);
+            Assert.AreEqual(header.PilotInCharge, "BERND_FABIAN");
+            Assert.AreEqual(header.GliderId, "D_KUEL");
+            Assert.AreEqual(header.GliderType, "VENTUS2CM18");
+            Assert.AreEqual(header.CompetitionId, "D1");
+            //Assert.AreEqual(header.CompetitionClass, "18M_FAI*");
+            Assert.AreEqual(header.GPS, "FDK/GSU-14");
+            Assert.AreEqual(header.FirmwareVersion, "5.1");
+            Assert.AreEqual(header.HardwareVersion, "2.1");
+            Assert.AreEqual(header.GpsDatum, 100);
+            Assert.AreEqual(header.FlightRecorder, "FILSER,LX20");
+
+            Assert.IsTrue(document.Records.Count > 0);
         }
     }
 }

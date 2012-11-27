@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GeoPositionTest.cs" />
     <Compile Include="IgcDocumentTest.cs" />
     <Compile Include="IgcReaderTest.cs" />
     <Compile Include="ManufacturerRecordTest.cs" />

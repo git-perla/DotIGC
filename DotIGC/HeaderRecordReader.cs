@@ -14,12 +14,9 @@
 
             var source = text[1] == 'F' ? DataSource.FlightRecorder : DataSource.Other;
             var tlc = (ThreeLetterCode)Enum.Parse(typeof(ThreeLetterCode), text.Substring(2, 3));
-
             var values = text.Split(new[] { ':' });
-
-            return values.Length > 1 ?
-                new Record<string>(recordType, tlc, text, values[1]) :
-                new Record(recordType, tlc, text);
+            var value = values.Length > 1 ? values[1] : string.Empty;
+            return new HeaderRecord(source, tlc, text, value);                
         }
     }
 }
