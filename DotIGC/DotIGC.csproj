@@ -56,6 +56,7 @@
     <Compile Include="Records\Record.cs" />
     <Compile Include="Records\RecordType.cs" />
     <Compile Include="Records\ThreeLetterCode.cs" />
+    <Compile Include="System\Linq\EnumerableExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
