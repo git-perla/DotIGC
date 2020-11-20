@@ -87,7 +87,7 @@
                 var month = record.Text.Substring(7, 2);
                 var year = record.Text.Substring(9, 2);
 
-                header.Date = DateTimeOffset.Parse(year + "-" + month + "-" + day);
+                header.Date = new DateTimeOffset(new DateTime(int.Parse(year), int.Parse(month), int.Parse(day)));
             };
 
             mapper[ThreeLetterCode.FXA] = (header, record) =>
