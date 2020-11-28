@@ -1,10 +1,10 @@
 ﻿namespace DotIGC
 {
+    using DotIGC.Records;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using DotIGC.Records;
 
     public class IgcDocumentHeader
     {
@@ -83,17 +83,22 @@
 
             mapper[ThreeLetterCode.DTE] = (header, record) =>
             {
-                var day = record.Text.Substring(5, 2);
-                var month = record.Text.Substring(7, 2);
-                var year = record.Text.Substring(9, 2);
+                var recordText = record.Text.Replace("DATE:", "");
+                var day = recordText.Substring(5, 2);
+                var month = recordText.Substring(7, 2);
+                var year = recordText.Substring(9, 2);
 
-                header.Date = new DateTimeOffset(new DateTime(int.Parse(year), int.Parse(month), int.Parse(day)));
+                var currentYearMillennium = (DateTime.Now.Year / 100 * 100);
+
+                header.Date = new DateTimeOffset(new DateTime(currentYearMillennium + int.Parse(year), int.Parse(month), int.Parse(day)));
             };
 
             mapper[ThreeLetterCode.FXA] = (header, record) =>
             {
                 var number = record.Text.Substring(5, 3);
-                header.Accuracy = int.Parse(number);
+
+                var parsingOk = int.TryParse(number, out var parsedNumber);
+                header.Accuracy = (parsingOk) ? parsedNumber : 0;
             };
 
             mapper[ThreeLetterCode.PLT] = (header, record) =>
@@ -149,7 +154,9 @@
             mapper[ThreeLetterCode.DTM] = (header, record) =>
             {
                 var number = record.Text.Substring(5, 3);
-                header.GpsDatum = int.Parse(number);
+
+                var parsingOk = int.TryParse(number, out var gpsDatum);
+                header.GpsDatum = (parsingOk) ? gpsDatum : 0;
             };
 
             mapper[ThreeLetterCode.PRS] = (header, record) =>

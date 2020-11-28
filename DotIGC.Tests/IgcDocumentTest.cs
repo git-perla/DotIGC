@@ -1,8 +1,8 @@
 ﻿namespace DotIGC.Tests
 {
-    using System;
     using DotIGC;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
     [TestClass]
     public class IgcDocumentTest
